@@ -1,4 +1,4 @@
-SELECT 
+SELECT
  TO_JSON_STRING(
     ARRAY_AGG(STRUCT( 
       IF(is_nullable = 'YES', 'NULLABLE', 'REQUIRED') AS mode,
@@ -6,6 +6,6 @@ SELECT
       data_type AS type)
     ORDER BY ordinal_position), TRUE) AS schema
 FROM
-  lekesh_test.INFORMATION_SCHEMA.COLUMNS
+  <dataset-name>.INFORMATION_SCHEMA.COLUMNS
 WHERE
-  table_name = 'sample_data'
+  table_name = '<table-name>';
